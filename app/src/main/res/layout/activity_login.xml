@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageViewDent"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@drawable/dent"
+        app:layout_constraintBottom_toTopOf="@id/editTextLoginMail"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/editTextLoginMail"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/rounded_border"
+        android:paddingLeft="10dp"
+        android:drawableStart="@drawable/ic_action_email"
+        android:drawablePadding="5dp"
+        android:layout_marginTop="40dp"
+        android:hint="@string/enter_mail"
+        android:textColorHint="@color/colorPrimary"
+        android:textColor="@color/colorPrimary"
+        android:inputType="textEmailAddress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toTopOf="@id/editTextLoginPassword"
+        app:layout_constraintTop_toBottomOf="@id/imageViewDent" />
+
+    <EditText
+        android:id="@+id/editTextLoginPassword"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="@string/enter_password"
+        android:textColorHint="@color/colorPrimary"
+        android:textColor="@color/colorPrimary"
+        android:inputType="textPassword"
+        android:background="@drawable/rounded_border"
+        android:paddingLeft="10dp"
+        android:drawableStart="@drawable/ic_action_security"
+        android:drawablePadding="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintTop_toBottomOf="@id/editTextLoginMail"
+        app:layout_constraintBottom_toTopOf="@id/loginButton"/>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/login"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/rounded_border"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintTop_toBottomOf="@id/editTextLoginPassword"
+        app:layout_constraintBottom_toTopOf="@id/needAccountLink"/>
+
+    <TextView
+        android:id="@+id/needAccountLink"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/need_account"
+        android:textColor="@color/colorPrimary"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintTop_toBottomOf="@id/loginButton"
+        app:layout_constraintBottom_toBottomOf="@id/progressBarLogin"/>
+
+    <ProgressBar
+        android:id="@+id/progressBarLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="@id/needAccountLink"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
