@@ -18,22 +18,30 @@
         android:id="@+id/textViewGroupName"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/colorPrimary"
         app:layout_constraintStart_toEndOf="@id/ImageViewGroupImage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.5"/>
 
-    <ImageView
-        android:id="@+id/newMassageAllert"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/newMassage"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:visibility="visible"
-        android:background="@color/colorAccent"
-        app:srcCompat="@android:drawable/ic_dialog_email"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
+        app:cardCornerRadius="20dp"
         app:layout_constraintStart_toEndOf="@id/textViewGroupName"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.2" />
+        app:layout_constraintWidth_percent="0.2">
+
+        <ImageView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:background="@color/colorAccent"
+            app:srcCompat="@android:drawable/ic_dialog_email" />
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

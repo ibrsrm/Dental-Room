@@ -135,6 +135,7 @@ public class GroupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                mMessagesViewModel.updateGroupTimestamp(mGroupID);
                 finish();
             }
         });
@@ -144,10 +145,12 @@ public class GroupActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String rating = mRating.getSelectedItem().toString();
                 String input = mText.getText().toString();
-                if (rating.equals("Rating") || input.isEmpty()) {
+                if (rating.equals("RATE") || input.isEmpty()) {
                     showErrorDialog();
                 } else {
                     mMessagesViewModel.sendMessage(mGroupID, input, rating);
+                    mText.setText("");
+                    mRating.setSelection(0);
                 }
             }
         });
@@ -196,6 +199,7 @@ public class GroupActivity extends AppCompatActivity {
     @Override
     public void onPause() {
         hideErrorDialog();
+        mMessagesViewModel.updateGroupTimestamp(mGroupID);
         super.onPause();
     }
 

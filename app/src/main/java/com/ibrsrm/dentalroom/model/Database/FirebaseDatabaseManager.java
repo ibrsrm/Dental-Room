@@ -1,5 +1,7 @@
 package com.ibrsrm.dentalroom.model.Database;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -87,7 +89,7 @@ public class FirebaseDatabaseManager extends BaseDatabase {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 if (dataSnapshot.exists() == true) {
-                    initializeFirebaseGroup(dataSnapshot.getKey());
+                    initializeFirebaseGroup(dataSnapshot.getKey(), (Long) dataSnapshot.getValue());
                 }
             }
 
@@ -115,7 +117,7 @@ public class FirebaseDatabaseManager extends BaseDatabase {
         mCurrentUserRef.child(GROUP_TAG).addChildEventListener(mGroupListener);
     }
 
-    private void initializeFirebaseGroup (String groupID) {
+    private void initializeFirebaseGroup (String groupID, final long timestamp) {
         Query query = mGroupRef.child(groupID);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -123,6 +125,8 @@ public class FirebaseDatabaseManager extends BaseDatabase {
                 if (dataSnapshot.exists() == true) {
                     Group group = dataSnapshot.getValue(Group.class);
                     if (groupListener != null) {
+                        Log.e("SET TIMESTAMP:", ":" + timestamp);
+                        group.setTimestamp(timestamp);
                         groupListener.onNewGroup(group);
                     }
                     addFirebaseGroupMessageListener(group.getUid());
@@ -271,6 +275,12 @@ public class FirebaseDatabaseManager extends BaseDatabase {
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put(messageID, postValues);
         mMessageRef.child(groupID).updateChildren(childUpdates);
+    }
+
+    @Override
+    public void updateGroupTimestamp(String groupID) {
+        Log.e("GroupID:" + groupID, ":" + System.currentTimeMillis());
+        mCurrentUserRef.child(GROUP_TAG).child(groupID).setValue(System.currentTimeMillis());
     }
 
 }

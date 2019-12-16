@@ -20,10 +20,11 @@
 
             <Button
                 android:id="@+id/toolbarButtonReorder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
                 android:layout_gravity="right"
-                android:background="@drawable/ic_action_reorder" />
+                android:background="@drawable/ic_action_sort" />
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -64,10 +65,10 @@
         <TextView
             android:id="@+id/textComment"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
-            android:textSize="40sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/linearLayout"
             app:layout_constraintBottom_toTopOf="@id/recyclerViewGroupMessages"/>
@@ -96,10 +97,7 @@
                 android:hint="@string/enter_message"
                 android:inputType="text"
                 android:paddingLeft="10dp"
-                android:textColor="@color/colorPrimary"
-                android:textColorHint="@color/colorPrimary"
                 android:textSize="20dp"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.6" />
@@ -121,7 +119,6 @@
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/rounded_border"
                 android:text="@string/send"
-                android:textColor="@color/colorPrimary"
                 app:layout_constraintStart_toEndOf="@id/spinnerInputComment"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.2" />

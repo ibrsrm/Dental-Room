@@ -54,4 +54,6 @@ public abstract class BaseDatabase {
 
     public abstract void handleSendMessage(String groupID, String text, String rating);
 
+    public abstract void updateGroupTimestamp(String groupID);
+
 }

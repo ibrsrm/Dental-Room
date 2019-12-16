@@ -19,6 +19,9 @@ public class Group {
     private String comment;
     private String url;
 
+    private long timestamp;
+    private long lastMessageTimestamp;
+
     private Map<String, String> members;
     private ArrayList<Message> messages;
 
@@ -66,6 +69,11 @@ public class Group {
 
     @Exclude
     public boolean getNewMessageStatus () {
+        if (lastMessageTimestamp >= timestamp) {
+            mNewMessage = true;
+        } else {
+            mNewMessage = false;
+        }
         return mNewMessage;
     }
 
@@ -82,7 +90,15 @@ public class Group {
     @Exclude
     public void addMessage(Message message) {
         messages.add(message);
-        mNewMessage = true;
+        lastMessageTimestamp = message.getTimestamp();
+    }
+
+    @Exclude
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+        if (this.timestamp > this.lastMessageTimestamp) {
+            mNewMessage = false;
+        }
     }
 
     @Exclude

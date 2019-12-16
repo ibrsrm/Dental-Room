@@ -71,4 +71,6 @@ public abstract class BaseRepository {
 
     public abstract void createGroup(String groupName, String groupComment, HashSet<Contact> groupMembers, String imageUri);
 
+    public abstract void updateGroupTimestamp(@NonNull String groupID);
+
 }

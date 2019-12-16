@@ -42,4 +42,8 @@ public class MessagesViewModel extends ViewModel {
         mBaseRepository.sendMessage(groupID, text, rating);
     }
 
+    public void updateGroupTimestamp(String groupID) {
+        mBaseRepository.updateGroupTimestamp(groupID);
+    }
+
 }

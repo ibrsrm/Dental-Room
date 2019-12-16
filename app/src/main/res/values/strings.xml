@@ -25,9 +25,11 @@
     <string name="enter_group_comment">Comment on the XRay</string>
     <string name="current_contacts">CONTACTS</string>
     <string name="groupMembers">Group Members</string>
+    <string name="title_activity_render">RenderActivity</string>
+    <string name="action_new_group">New Group</string>
 
     <array name="SpinnerValues">
-        <item>"Rating"</item>
+        <item>"RATE"</item>
         <item>"1"</item>
         <item>"2"</item>
         <item>"3"</item>
@@ -39,5 +41,5 @@
         <item>"9"</item>
         <item>"10"</item>
     </array>
-    <string name="title_activity_render">RenderActivity</string>
+
 </resources>

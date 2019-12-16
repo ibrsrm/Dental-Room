@@ -144,4 +144,9 @@ public class Repository extends BaseRepository {
         mDatabaseManager.handleCreateGroup(groupName, groupComment, groupMembers, imageUri);
     }
 
+    @Override
+    public void updateGroupTimestamp(String groupID) {
+        mDatabaseManager.updateGroupTimestamp(groupID);
+    }
+
 }

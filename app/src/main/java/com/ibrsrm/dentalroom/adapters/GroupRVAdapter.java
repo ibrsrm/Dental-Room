@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.storage.FirebaseStorage;
@@ -64,14 +65,14 @@ public class GroupRVAdapter extends RecyclerView.Adapter<GroupRVAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView mGroupName;
-        public ImageView mNewMessage;
+        public CardView mNewMessage;
         public ImageView mGroupImage;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
             mGroupName = itemView.findViewById(R.id.textViewGroupName);
-            mNewMessage = itemView.findViewById(R.id.newMassageAllert);
+            mNewMessage = itemView.findViewById(R.id.newMassage);
             mGroupImage = itemView.findViewById(R.id.ImageViewGroupImage);
             itemView.setOnClickListener(this);
         }

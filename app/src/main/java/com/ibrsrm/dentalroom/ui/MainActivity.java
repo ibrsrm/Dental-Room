@@ -116,6 +116,11 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
             startActivity(intent);
         }
 
+        if (id == R.id.action_new_group) {
+            Intent intent = new Intent(MainActivity.this, CreateGroupActivity.class);
+            startActivity(intent);
+        }
+
         if (id == R.id.action_logout) {
             ConfigManager.getInstance().getAuthenticationManager().handleLogout();
             ConfigManager.getInstance().terminate();
