@@ -125,7 +125,6 @@ public class FirebaseDatabaseManager extends BaseDatabase {
                 if (dataSnapshot.exists() == true) {
                     Group group = dataSnapshot.getValue(Group.class);
                     if (groupListener != null) {
-                        Log.e("SET TIMESTAMP:", ":" + timestamp);
                         group.setTimestamp(timestamp);
                         groupListener.onNewGroup(group);
                     }
@@ -279,7 +278,6 @@ public class FirebaseDatabaseManager extends BaseDatabase {
 
     @Override
     public void updateGroupTimestamp(String groupID) {
-        Log.e("GroupID:" + groupID, ":" + System.currentTimeMillis());
         mCurrentUserRef.child(GROUP_TAG).child(groupID).setValue(System.currentTimeMillis());
     }
 

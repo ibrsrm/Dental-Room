@@ -123,7 +123,6 @@ public class ContactActivity extends AppCompatActivity {
                 String email = mEmail.getText().toString();
                 String nick = mNick.getText().toString();
                 if (!email.isEmpty() && !nick.isEmpty()) {
-                    Log.e("mail:" + email, " nick:" + nick);
                     showProgressBar();
                     mContactViewModel.addContact(email, nick);
                     return;
